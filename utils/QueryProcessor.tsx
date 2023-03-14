@@ -18,15 +18,16 @@ export default function QueryProcessor(query: string): string {
     );
   }
   if (query.toLowerCase().includes("largest")) {
+    query = query.replace(",", '');
     var splitted = query.split(" ", 15);
     var a = parseInt(splitted[9]);
     var b = parseInt(splitted[11]);
     var c = parseInt(splitted[13]);
     if(a > b && a > c)
-      return splitted[9];
+      return a.toString();
     if(b > c && b > a)
-      return splitted[11];
-    return splitted[13];
+      return b.toString();
+    return c.toString();
   }
 // test
   return "";
