@@ -23,6 +23,18 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("both a square and cube")) {
   return D(query).toString();
   }
+  if (query.toLowerCase().includes("minus")) {
+    var splitted = query.split(" ", 10);
+    return (
+      (parseInt(splitted[2]) - parseInt(splitted[4])).toString()
+    );
+  }
+  if (query.toLowerCase().includes("multiplied")) {
+    var splitted = query.split(" ", 10);
+    return (
+      (parseInt(splitted[2]) * parseInt(splitted[4])).toString()
+    );
+  }
   else
     return "0";
 }
