@@ -18,17 +18,15 @@ export default function QueryProcessor(query: string): string {
     );
   }
   if (query.toLowerCase().includes("largest")) {
-    query = query.replace(",", '');
-    var splitted = query.split(" ", 15);
-    var a = parseInt(splitted[9]);
-    var b = parseInt(splitted[11]);
-    var c = parseInt(splitted[13]);
-    if(a > b && a > c)
-      return a.toString();
-    if(b > c && b > a)
-      return b.toString();
-    return c.toString();
+  return findLargestNumber(query).toString();
   }
-// test
-  return "";
+  else
+    return "0";
+}
+
+function findLargestNumber(str: string): number {
+  const regex = /\d+/g; // Matches any digit one or more times
+  const numbers = str.match(regex)?.map(Number); // Extract all numbers from the string and convert them to numbers
+  if (!numbers || numbers.length === 0) return -1; // If no numbers are found in the string, return -1
+  return Math.max(...numbers); // Return the largest number
 }
