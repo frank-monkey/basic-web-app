@@ -78,7 +78,7 @@ function E(str: string) : number {
 }
 
 function isPrime(n : number) {
-  for(let i = 0; i < n; i++) {
+  for(let i = 2; i < n; i++) {
     if(n % i == 0)
       return false;
   } 
@@ -91,3 +91,5 @@ function F(str: string): number {
   if (!numbers || numbers.length === 0) return -1;
   return Math.pow(numbers[0], numbers[1]);
 }
+//a
+//commit
