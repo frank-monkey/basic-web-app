@@ -11,6 +11,13 @@ export default function QueryProcessor(query: string): string {
       "writer in the English language and the world's pre-eminent dramatist."
     );
   }
+  if (query.toLowerCase().includes("plus")) {
+    var splitted = query.split(" ", 10);
+    return (
+      "test"
+      //(parseInt(splitted[2]) + parseInt(splitted[4])).toString()
+    );
+  }
 // test
   return "";
 }
