@@ -12,10 +12,24 @@ export default function QueryProcessor(query: string): string {
     );
   }
   if (query.toLowerCase().includes("plus")) {
+  const regex = /\d+/g;
+  const numbers = query.match(regex)?.map(Number);
+  if (!numbers || numbers.length === 0)
+    return "-1";
+  if (numbers.length == 2) {
+  return (numbers[0] + numbers[1]).toString();
+  }
+  if (numbers.length == 3) {
+  return (numbers[0] + numbers[1] + numbers[2]).toString();
+  }
+
+  /*
+  if (!numbers || numbers.length === 0) return -1;
     var splitted = query.split(" ", 10);
     return (
       (parseInt(splitted[2]) + parseInt(splitted[4])).toString()
     );
+  */
   }
   if (query.toLowerCase().includes("largest")) {
   return C(query).toString();
