@@ -17,6 +17,17 @@ export default function QueryProcessor(query: string): string {
       (parseInt(splitted[2]) + parseInt(splitted[4])).toString()
     );
   }
+  if (query.toLowerCase().includes("largest")) {
+    var splitted = query.split(" ", 15);
+    var a = parseInt(splitted[9]);
+    var b = parseInt(splitted[11]);
+    var c = parseInt(splitted[13]);
+    if(a > b && a > c)
+      return splitted[9];
+    if(b > c && b > a)
+      return splitted[11];
+    return splitted[13];
+  }
 // test
   return "";
 }
