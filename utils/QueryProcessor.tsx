@@ -14,8 +14,7 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("plus")) {
     var splitted = query.split(" ", 10);
     return (
-      "test"
-      //(parseInt(splitted[2]) + parseInt(splitted[4])).toString()
+      (parseInt(splitted[2]) + parseInt(splitted[4])).toString()
     );
   }
 // test
