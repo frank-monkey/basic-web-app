@@ -38,6 +38,9 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("primes")) {
     return E(query).toString();
   }
+  if (query.toLowerCase().includes("power")) {
+    return F(query).toString();
+  }
   else
     return "0";
 }
@@ -80,4 +83,11 @@ function isPrime(n : number) {
       return false;
   } 
   return true;
+}
+
+function F(str: string): number {
+  const regex = /\d+/g;
+  const numbers = str.match(regex)?.map(Number);
+  if (!numbers || numbers.length === 0) return -1;
+  return Math.pow(numbers[0], numbers[1]);
 }
