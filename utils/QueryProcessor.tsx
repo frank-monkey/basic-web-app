@@ -35,11 +35,8 @@ export default function QueryProcessor(query: string): string {
       (parseInt(splitted[2]) * parseInt(splitted[6])).toString()
     );
   }
-  if (query.toLowerCase().includes("prime")) {
-    var splitted = query.split(" ", 10);
-    return (
-      (parseInt(splitted[2]) * parseInt(splitted[4])).toString()
-    );
+  if (query.toLowerCase().includes("primes")) {
+    return E(query).toString();
   }
   else
     return "0";
@@ -63,4 +60,24 @@ function D(str: string) : number {
       return numbers[i];
   }
   return -1;
+}
+
+function E(str: string) : number {
+  const regex = /\d+/g;
+  const numbers = str.match(regex)?.map(Number);
+  if (!numbers || numbers.length === 0) return -1;
+  for(let i = 0; i < numbers.length; i++) {
+  if(isPrime(numbers[i])) {
+      return numbers[i];
+    }
+  }
+  return -1;
+}
+
+function isPrime(n : number) {
+  for(let i = 0; i < n; i++) {
+    if(n % i == 0)
+      return false;
+  } 
+  return true;
 }
