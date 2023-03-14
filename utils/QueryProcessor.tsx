@@ -32,6 +32,12 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("multiplied")) {
     var splitted = query.split(" ", 10);
     return (
+      (parseInt(splitted[2]) * parseInt(splitted[6])).toString()
+    );
+  }
+  if (query.toLowerCase().includes("prime")) {
+    var splitted = query.split(" ", 10);
+    return (
       (parseInt(splitted[2]) * parseInt(splitted[4])).toString()
     );
   }
